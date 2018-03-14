@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+
+  "name": "Netflix Secret Categories",
+  "description": "Lets you browse hidden categories in Netflix",
+  "version": "1.0",
+
+  "icons": {
+    // "16": "images/icon_16.png",
+    // "24": "images/icon_24.png",
+    // "32": "images/icon_32.png",
+    // "48": "images/icon_48.png",
+    // "128": "images/icon_128.png"
+  },
+
+  "page_action": {
+    "default_icon": {
+      // "16": "images/icon_16.png",
+      // "24": "images/icon_24.png",
+      // "32": "images/icon_32.png",
+      // "48": "images/icon_48.png"
+    },
+    "default_title": "Netflix Secret Categories",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.netflix.com/*"],
+      "css": ["stylesheets/categorySelector.css"],
+      "js": [
+        "javascript/jquery-3.1.1.min.js",
+        "javascript/logger.js",
+        "javascript/categories.js",
+        "javascript/categorySelector.js",
+        "javascript/contentscript.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["javascript/background.js"]
+  },
+
+  "permissions": [
+    "https://*.netflix.com/*",
+    "https://ajax.googleapis.com/",
+    "tabs"
+  ],
+
+  "web_accessible_resources": [
+  ]
+}
